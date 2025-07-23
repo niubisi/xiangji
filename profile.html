@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>我的</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-left">
+            15:30
+        </div>
+        <div class="status-bar-center">
+            <span>我的</span>
+        </div>
+        <div class="status-bar-right">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-three-quarters"></i>
+        </div>
+    </div>
+
+    <!-- 内容区域 -->
+    <div class="content-area">
+        <!-- 用户信息 -->
+        <div style="text-align: center; padding: 20px 16px;">
+            <div class="avatar" style="width: 80px; height: 80px; margin: 0 auto 12px;">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=200" alt="用户头像">
+            </div>
+            <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">摄影爱好者</div>
+            <div style="font-size: 14px; color: var(--text-secondary);">已使用 128 天</div>
+        </div>
+
+        <!-- 统计信息 -->
+        <div class="card" style="display: flex; justify-content: space-around; text-align: center; margin-bottom: 20px;">
+            <div>
+                <div style="font-size: 20px; font-weight: 600; color: var(--primary-color);">25</div>
+                <div style="font-size: 12px; color: var(--text-secondary);">我的预设</div>
+            </div>
+            <div>
+                <div style="font-size: 20px; font-weight: 600; color: var(--primary-color);">156</div>
+                <div style="font-size: 12px; color: var(--text-secondary);">拍摄照片</div>
+            </div>
+            <div>
+                <div style="font-size: 20px; font-weight: 600; color: var(--primary-color);">32</div>
+                <div style="font-size: 12px; color: var(--text-secondary);">获得点赞</div>
+            </div>
+        </div>
+
+        <!-- 功能菜单 -->
+        <div style="margin-bottom: 20px;">
+            <div class="card" style="padding: 0;">
+                <div style="display: flex; align-items: center; padding: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                    <i class="fas fa-layer-group" style="width: 20px; color: var(--primary-color);"></i>
+                    <span style="flex: 1; margin-left: 16px;">我的预设</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary); font-size: 12px;"></i>
+                </div>
+                <div style="display: flex; align-items: center; padding: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                    <i class="fas fa-heart" style="width: 20px; color: var(--primary-color);"></i>
+                    <span style="flex: 1; margin-left: 16px;">我的收藏</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary); font-size: 12px;"></i>
+                </div>
+                <div style="display: flex; align-items: center; padding: 16px;">
+                    <i class="fas fa-images" style="width: 20px; color: var(--primary-color);"></i>
+                    <span style="flex: 1; margin-left: 16px;">相册管理</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary); font-size: 12px;"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 设置菜单 -->
+        <div style="margin-bottom: 20px;">
+            <div class="card" style="padding: 0;">
+                <div style="display: flex; align-items: center; padding: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                    <i class="fas fa-cog" style="width: 20px; color: var(--text-secondary);"></i>
+                    <span style="flex: 1; margin-left: 16px;">设置</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary); font-size: 12px;"></i>
+                </div>
+                <div style="display: flex; align-items: center; padding: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                    <i class="fas fa-question-circle" style="width: 20px; color: var(--text-secondary);"></i>
+                    <span style="flex: 1; margin-left: 16px;">帮助与反馈</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary); font-size: 12px;"></i>
+                </div>
+                <div style="display: flex; align-items: center; padding: 16px;">
+                    <i class="fas fa-info-circle" style="width: 20px; color: var(--text-secondary);"></i>
+                    <span style="flex: 1; margin-left: 16px;">关于</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary); font-size: 12px;"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 最近使用的预设 -->
+        <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; padding: 0 16px;">最近使用</h3>
+            
+            <div class="card">
+                <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                    <div style="width: 40px; height: 40px; border-radius: 6px; overflow: hidden; margin-right: 12px;">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=200" alt="预设" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600; font-size: 14px; margin-bottom: 2px;">日落风景</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">2小时前使用</div>
+                    </div>
+                    <button class="btn" style="padding: 4px 12px; font-size: 12px;">再次使用</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                    <div style="width: 40px; height: 40px; border-radius: 6px; overflow: hidden; margin-right: 12px;">
+                        <img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&q=80&w=200" alt="预设" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600; font-size: 14px; margin-bottom: 2px;">室内人像</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">昨天使用</div>
+                    </div>
+                    <button class="btn" style="padding: 4px 12px; font-size: 12px;">再次使用</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="tab-bar">
+        <div class="tab-item">
+            <i class="fas fa-camera tab-icon"></i>
+            <span>相机</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-layer-group tab-icon"></i>
+            <span>预设</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-users tab-icon"></i>
+            <span>社区</span>
+        </div>
+        <div class="tab-item active">
+            <i class="fas fa-user tab-icon"></i>
+            <span>我的</span>
+        </div>
+    </div>
+
+    <script src="components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 导航功能
+            const tabItems = document.querySelectorAll('.tab-item');
+            tabItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    if (index === 3) return;
+                    
+                    const pages = ['camera.html', 'presets.html', 'community.html', 'profile.html'];
+                    window.location.href = pages[index];
+                });
+            });
+            
+            // 菜单点击
+            const menuItems = document.querySelectorAll('[style*="display: flex"][style*="padding: 16px"]');
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const text = item.querySelector('span').textContent;
+                    showNotification(`即将打开${text}`);
+                });
+            });
+            
+            // 再次使用按钮
+            const useAgainBtns = document.querySelectorAll('button');
+            useAgainBtns.forEach(btn => {
+                if (btn.textContent.includes('再次使用')) {
+                    btn.addEventListener('click', () => {
+                        showNotification('预设已应用');
+                        setTimeout(() => {
+                            window.location.href = 'camera.html';
+                        }, 1000);
+                    });
+                }
+            });
+            
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    z-index: 1000;
+                    backdrop-filter: blur(10px);
+                `;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    setTimeout(() => notification.remove(), 300);
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html> 

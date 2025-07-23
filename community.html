@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>社区</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-left">
+            15:30
+        </div>
+        <div class="status-bar-center">
+            <span>社区</span>
+        </div>
+        <div class="status-bar-right">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-three-quarters"></i>
+        </div>
+    </div>
+
+    <!-- 内容区域 -->
+    <div class="content-area">
+        <!-- 搜索栏 -->
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="搜索作品、用户..." id="search-input">
+        </div>
+        
+        <!-- 用户故事栏 -->
+        <div style="display: flex; overflow-x: auto; padding: 0 16px; margin: 16px 0;" class="hide-scrollbar">
+            <div style="width: 60px; margin-right: 16px; text-align: center;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary-color); padding: 2px; margin-bottom: 6px;">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100" alt="用户头像" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                </div>
+                <div style="font-size: 11px;">摄影师A</div>
+            </div>
+            
+            <div style="width: 60px; margin-right: 16px; text-align: center;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary-color); padding: 2px; margin-bottom: 6px;">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="用户头像" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                </div>
+                <div style="font-size: 11px;">风景达人</div>
+            </div>
+            
+            <div style="width: 60px; margin-right: 16px; text-align: center;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary-color); padding: 2px; margin-bottom: 6px;">
+                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=100" alt="用户头像" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                </div>
+                <div style="font-size: 11px;">人像大师</div>
+            </div>
+            
+            <div style="width: 60px; margin-right: 16px; text-align: center;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary-color); padding: 2px; margin-bottom: 6px;">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100" alt="用户头像" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                </div>
+                <div style="font-size: 11px;">美食摄影</div>
+            </div>
+            
+            <div style="width: 60px; margin-right: 16px; text-align: center;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary-color); padding: 2px; margin-bottom: 6px;">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" alt="用户头像" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                </div>
+                <div style="font-size: 11px;">夜景专家</div>
+            </div>
+        </div>
+        
+        <!-- 社区作品 -->
+        <div style="padding: 0 16px;">
+            <!-- 作品1 -->
+            <div class="card">
+                <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                    <div class="avatar">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100" alt="用户头像">
+                    </div>
+                    <div style="margin-left: 12px; flex: 1;">
+                        <div style="font-weight: 600; font-size: 14px;">摄影师Alex</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">2小时前</div>
+                    </div>
+                    <button style="background: none; border: none; color: var(--text-secondary); padding: 4px;">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+                
+                <div style="margin-bottom: 12px;">
+                    <p style="margin: 0; font-size: 14px; line-height: 1.4;">今天在外滩拍摄的夜景，使用了低ISO和长曝光，效果很棒！</p>
+                </div>
+                
+                <div style="position: relative; border-radius: 8px; overflow: hidden; margin-bottom: 12px;">
+                    <img src="https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?auto=format&fit=crop&q=80&w=600" alt="作品图片" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="position: absolute; bottom: 8px; right: 8px; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); padding: 4px 8px; border-radius: 12px; font-size: 11px;">
+                        <i class="fas fa-sliders-h" style="margin-right: 4px;"></i>
+                        <span>获取参数</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; gap: 16px;">
+                        <button style="background: none; border: none; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; font-size: 14px;">
+                            <i class="far fa-heart"></i>
+                            <span>128</span>
+                        </button>
+                        <button style="background: none; border: none; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; font-size: 14px;">
+                            <i class="far fa-comment"></i>
+                            <span>32</span>
+                        </button>
+                    </div>
+                    <button class="btn" style="padding: 4px 12px; font-size: 12px;" onclick="shareParams('外滩夜景')">
+                        分享参数
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 作品2 -->
+            <div class="card">
+                <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                    <div class="avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="用户头像">
+                    </div>
+                    <div style="margin-left: 12px; flex: 1;">
+                        <div style="font-weight: 600; font-size: 14px;">风景达人</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">昨天</div>
+                    </div>
+                    <button style="background: none; border: none; color: var(--text-secondary); padding: 4px;">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+                
+                <div style="margin-bottom: 12px;">
+                    <p style="margin: 0; font-size: 14px; line-height: 1.4;">终于拍到了梦寐以求的北极光！这是我调试了很久的参数。</p>
+                </div>
+                
+                <div style="position: relative; border-radius: 8px; overflow: hidden; margin-bottom: 12px;">
+                    <img src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&q=80&w=600" alt="作品图片" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="position: absolute; bottom: 8px; right: 8px; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); padding: 4px 8px; border-radius: 12px; font-size: 11px;">
+                        <i class="fas fa-sliders-h" style="margin-right: 4px;"></i>
+                        <span>获取参数</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; gap: 16px;">
+                        <button style="background: none; border: none; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; font-size: 14px;">
+                            <i class="far fa-heart"></i>
+                            <span>256</span>
+                        </button>
+                        <button style="background: none; border: none; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; font-size: 14px;">
+                            <i class="far fa-comment"></i>
+                            <span>48</span>
+                        </button>
+                    </div>
+                    <button class="btn" style="padding: 4px 12px; font-size: 12px;" onclick="shareParams('北极光')">
+                        分享参数
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 作品3 -->
+            <div class="card">
+                <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                    <div class="avatar">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=100" alt="用户头像">
+                    </div>
+                    <div style="margin-left: 12px; flex: 1;">
+                        <div style="font-weight: 600; font-size: 14px;">人像大师</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">3天前</div>
+                    </div>
+                    <button style="background: none; border: none; color: var(--text-secondary); padding: 4px;">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+                
+                <div style="margin-bottom: 12px;">
+                    <p style="margin: 0; font-size: 14px; line-height: 1.4;">黄金时刻的海滩人像，光线柔和，肤色自然。</p>
+                </div>
+                
+                <div style="position: relative; border-radius: 8px; overflow: hidden; margin-bottom: 12px;">
+                    <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&q=80&w=600" alt="作品图片" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="position: absolute; bottom: 8px; right: 8px; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); padding: 4px 8px; border-radius: 12px; font-size: 11px;">
+                        <i class="fas fa-sliders-h" style="margin-right: 4px;"></i>
+                        <span>获取参数</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; gap: 16px;">
+                        <button style="background: none; border: none; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; font-size: 14px;">
+                            <i class="far fa-heart"></i>
+                            <span>192</span>
+                        </button>
+                        <button style="background: none; border: none; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; font-size: 14px;">
+                            <i class="far fa-comment"></i>
+                            <span>27</span>
+                        </button>
+                    </div>
+                    <button class="btn" style="padding: 4px 12px; font-size: 12px;" onclick="shareParams('海滩人像')">
+                        分享参数
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="tab-bar">
+        <div class="tab-item">
+            <i class="fas fa-camera tab-icon"></i>
+            <span>相机</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-layer-group tab-icon"></i>
+            <span>预设</span>
+        </div>
+        <div class="tab-item active">
+            <i class="fas fa-users tab-icon"></i>
+            <span>社区</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-user tab-icon"></i>
+            <span>我的</span>
+        </div>
+    </div>
+    
+    <!-- 参数分享模态框 -->
+    <div class="modal" id="share-modal">
+        <div class="modal-header">
+            <div class="modal-title">分享参数</div>
+            <button class="close-btn" id="close-share">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <p style="font-size: 14px; color: var(--text-secondary);">
+                参数口令已生成，可复制分享或保存到预设
+            </p>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: var(--border-radius); padding: 16px; margin: 20px 0; font-family: monospace; font-size: 14px; color: white; word-break: break-all;" id="param-code">
+            PARAM#外滩夜景#ISO:100;SS:30;AP:f8.0;WB:4000;EV:-0.7#Alex#1234567890
+        </div>
+        
+        <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+            <button class="btn" style="flex: 1;" id="copy-param">
+                <i class="fas fa-copy" style="margin-right: 8px;"></i> 复制
+            </button>
+            <button class="btn-secondary" style="flex: 1;">
+                <i class="fas fa-save" style="margin-right: 8px;"></i> 保存
+            </button>
+        </div>
+    </div>
+
+    <script src="components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 导航功能
+            const tabItems = document.querySelectorAll('.tab-item');
+            tabItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    if (index === 2) return;
+                    
+                    const pages = ['camera.html', 'presets.html', 'community.html', 'profile.html'];
+                    window.location.href = pages[index];
+                });
+            });
+            
+            // 点赞功能
+            const likeButtons = document.querySelectorAll('button i.fa-heart');
+            likeButtons.forEach(btn => {
+                btn.parentElement.addEventListener('click', () => {
+                    const icon = btn;
+                    const count = btn.parentElement.querySelector('span');
+                    
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        icon.style.color = '#FF2D55';
+                        count.textContent = parseInt(count.textContent) + 1;
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        icon.style.color = '';
+                        count.textContent = parseInt(count.textContent) - 1;
+                    }
+                });
+            });
+            
+            // 获取参数功能
+            const paramBadges = document.querySelectorAll('[style*="获取参数"]');
+            paramBadges.forEach(badge => {
+                badge.addEventListener('click', () => {
+                    window.location.href = 'camera.html';
+                });
+            });
+            
+            // 分享参数模态框
+            const shareModal = document.getElementById('share-modal');
+            const closeShare = document.getElementById('close-share');
+            
+            closeShare.addEventListener('click', () => {
+                shareModal.style.display = 'none';
+            });
+            
+            // 复制参数
+            const copyBtn = document.getElementById('copy-param');
+            copyBtn.addEventListener('click', () => {
+                const paramCode = document.getElementById('param-code').textContent.trim();
+                
+                navigator.clipboard.writeText(paramCode).then(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-check" style="margin-right: 8px;"></i> 已复制';
+                    setTimeout(() => {
+                        copyBtn.innerHTML = '<i class="fas fa-copy" style="margin-right: 8px;"></i> 复制';
+                    }, 2000);
+                });
+            });
+            
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    z-index: 1000;
+                    backdrop-filter: blur(10px);
+                `;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    setTimeout(() => notification.remove(), 300);
+                }, 2000);
+            }
+        });
+        
+        // 全局函数：分享参数
+        function shareParams(title) {
+            const shareModal = document.getElementById('share-modal');
+            const paramCode = document.getElementById('param-code');
+            
+            // 根据标题生成不同的参数口令
+            const params = {
+                '外滩夜景': 'PARAM#外滩夜景#ISO:100;SS:30;AP:f8.0;WB:4000;EV:-0.7#Alex#1234567890',
+                '北极光': 'PARAM#北极光#ISO:1600;SS:15;AP:f2.8;WB:3200;EV:0#风景达人#2345678901',
+                '海滩人像': 'PARAM#海滩人像#ISO:200;SS:1/125;AP:f2.0;WB:5500;EV:0.3#人像大师#3456789012'
+            };
+            
+            paramCode.textContent = params[title] || params['外滩夜景'];
+            shareModal.style.display = 'flex';
+        }
+    </script>
+</body>
+</html> 

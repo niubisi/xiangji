@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>相机</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-left">
+            15:30
+        </div>
+        <div class="status-bar-center">
+            
+        </div>
+        <div class="status-bar-right">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-three-quarters"></i>
+        </div>
+    </div>
+
+    <!-- 相机网格 -->
+    <div class="camera-grid" id="camera-grid"></div>
+    
+    <!-- 对焦点 -->
+    <div class="focus-point" id="focus-point"></div>
+    
+    <!-- 曝光控制 -->
+    <div class="exposure-control" id="exposure-control">
+        <div class="exposure-indicator" id="exposure-indicator"></div>
+    </div>
+
+    <!-- 快速识别区域 -->
+    <div class="quick-recognition" id="quick-recognition">
+        <input type="text" placeholder="粘贴参数口令，快速应用参数..." id="quick-input">
+    </div>
+
+    <!-- 相机视图 -->
+    <div class="camera-view">
+        <!-- 相机预览图像 -->
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=1000" alt="相机预览" style="width: 100%; height: 100%; object-fit: cover;">
+
+        <!-- 相机参数控制按钮 -->
+        <div class="camera-params">
+            <div class="param-btn" id="quick-param-btn" title="快速识别">
+                <i class="fas fa-qrcode"></i>
+            </div>
+            <div class="param-btn" title="曝光">
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="param-btn" title="对焦">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <div class="param-btn" id="open-params" title="参数面板">
+                <i class="fas fa-sliders-h"></i>
+            </div>
+        </div>
+
+        <!-- 相机模式选择器 -->
+        <div class="mode-selector">
+            <div class="mode-item">抓拍</div>
+            <div class="mode-item active">风光</div>
+            <div class="mode-item">人像</div>
+            <div class="mode-item">视频</div>
+        </div>
+
+        <!-- 相机控制按钮 -->
+        <div class="camera-controls">
+            <div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=100" alt="缩略图" style="width: 36px; height: 36px; border-radius: 6px; object-fit: cover;">
+            </div>
+            <div class="shutter-btn" id="shutter-btn"></div>
+            <div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-sync-alt" style="font-size: 20px; color: white;"></i>
+            </div>
+        </div>
+
+        <!-- 参数控制面板 -->
+        <div class="parameter-panel" id="parameter-panel">
+            <div style="width: 40px; height: 4px; background-color: rgba(255, 255, 255, 0.3); border-radius: 2px; margin: 0 auto 16px;"></div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 style="font-size: 16px; font-weight: 600; margin: 0;">参数控制</h3>
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn-secondary" style="padding: 6px 12px; font-size: 14px;">重置</button>
+                    <button class="btn" style="padding: 6px 12px; font-size: 14px;" id="share-params">分享</button>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+                <div class="parameter-preview">
+                    <h3>当前参数</h3>
+                    <div class="parameter-value">
+                        <span>ISO</span>
+                        <span id="iso-value">400</span>
+                    </div>
+                    <div class="parameter-value">
+                        <span>快门</span>
+                        <span id="shutter-value">1/125s</span>
+                    </div>
+                    <div class="parameter-value">
+                        <span>光圈</span>
+                        <span id="aperture-value">f/2.8</span>
+                    </div>
+                    <div class="parameter-value">
+                        <span>白平衡</span>
+                        <span id="wb-value">自动</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="overflow-y: auto; max-height: 300px;" class="adjust-content">
+                <div class="param-group">
+                    <div class="param-group-title">基本参数</div>
+                    <div id="iso-slider"></div>
+                    <div id="shutter-slider"></div>
+                    <div id="aperture-slider"></div>
+                    <div id="wb-slider"></div>
+                </div>
+
+                <div class="param-group">
+                    <div class="param-group-title">高级参数</div>
+                    <div id="exposure-slider"></div>
+                    <div id="contrast-slider"></div>
+                    <div id="highlights-slider"></div>
+                    <div id="shadows-slider"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="tab-bar">
+        <div class="tab-item active">
+            <i class="fas fa-camera tab-icon"></i>
+            <span>相机</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-layer-group tab-icon"></i>
+            <span>预设</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-users tab-icon"></i>
+            <span>社区</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-user tab-icon"></i>
+            <span>我的</span>
+        </div>
+    </div>
+    
+    <!-- 参数分享模态框 -->
+    <div class="modal" id="share-modal">
+        <div class="modal-header">
+            <div class="modal-title">分享参数</div>
+            <button class="close-btn" id="close-share">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <p style="font-size: 14px; color: var(--text-secondary);">
+                参数口令已生成，可复制分享或保存
+            </p>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: var(--border-radius); padding: 16px; margin: 20px 0; font-family: monospace; font-size: 14px; color: white; word-break: break-all;">
+            PARAM#风光模式#ISO:400;SS:1/125;AP:f2.8;WB:AUTO;EV:0#User#9876543210
+        </div>
+        
+        <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+            <button class="btn" style="flex: 1;" id="copy-param">
+                <i class="fas fa-copy" style="margin-right: 8px;"></i> 复制
+            </button>
+            <button class="btn-secondary" style="flex: 1;">
+                <i class="fas fa-save" style="margin-right: 8px;"></i> 保存
+            </button>
+        </div>
+    </div>
+
+    <script src="components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 初始化参数滑块
+            const isoSlider = createSlider('ISO', 100, 6400, 400);
+            document.getElementById('iso-slider').appendChild(isoSlider);
+            
+            const shutterSlider = createSlider('快门速度', 1, 1000, 125, 1, 's');
+            document.getElementById('shutter-slider').appendChild(shutterSlider);
+            
+            const apertureSlider = createSlider('光圈', 1.4, 22, 2.8, 0.1, 'f');
+            document.getElementById('aperture-slider').appendChild(apertureSlider);
+            
+            const wbSlider = createSlider('白平衡', 2500, 10000, 5500, 100, 'K');
+            document.getElementById('wb-slider').appendChild(wbSlider);
+            
+            const exposureSlider = createSlider('曝光补偿', -5, 5, 0, 0.1, 'EV');
+            document.getElementById('exposure-slider').appendChild(exposureSlider);
+            
+            const contrastSlider = createSlider('对比度', -100, 100, 0, 1, '%');
+            document.getElementById('contrast-slider').appendChild(contrastSlider);
+            
+            const highlightsSlider = createSlider('高光', -100, 100, 0, 1, '%');
+            document.getElementById('highlights-slider').appendChild(highlightsSlider);
+            
+            const shadowsSlider = createSlider('阴影', -100, 100, 0, 1, '%');
+            document.getElementById('shadows-slider').appendChild(shadowsSlider);
+            
+            // 参数面板控制
+            const openParamsBtn = document.getElementById('open-params');
+            const parameterPanel = document.getElementById('parameter-panel');
+            
+            openParamsBtn.addEventListener('click', () => {
+                parameterPanel.classList.toggle('active');
+            });
+            
+            // 导航到其他页面
+            const tabItems = document.querySelectorAll('.tab-item');
+            tabItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    if (index === 0) return;
+                    
+                    const pages = ['camera.html', 'presets.html', 'community.html', 'profile.html'];
+                    window.location.href = pages[index];
+                });
+            });
+            
+            // 快速识别功能
+            const quickParamBtn = document.getElementById('quick-param-btn');
+            const quickRecognition = document.getElementById('quick-recognition');
+            const quickInput = document.getElementById('quick-input');
+            
+            quickParamBtn.addEventListener('click', () => {
+                quickRecognition.classList.toggle('visible');
+                if (quickRecognition.classList.contains('visible')) {
+                    setTimeout(() => quickInput.focus(), 300);
+                }
+            });
+            
+            // 快速识别输入处理
+            quickInput.addEventListener('input', () => {
+                if (quickInput.value.trim().startsWith('PARAM#')) {
+                    // 模拟参数应用
+                    setTimeout(() => {
+                        applyParameters(quickInput.value);
+                        quickRecognition.classList.remove('visible');
+                        quickInput.value = '';
+                    }, 500);
+                }
+            });
+            
+            // 应用参数函数
+            function applyParameters(paramString) {
+                // 解析参数口令并应用
+                const params = parseParamString(paramString);
+                if (params) {
+                    updateUI(params);
+                    showNotification('参数已应用');
+                }
+            }
+            
+            function parseParamString(paramString) {
+                try {
+                    const parts = paramString.split('#');
+                    if (parts.length >= 3) {
+                        const paramPart = parts[2];
+                        const params = {};
+                        paramPart.split(';').forEach(param => {
+                            const [key, value] = param.split(':');
+                            params[key] = value;
+                        });
+                        return params;
+                    }
+                } catch (e) {
+                    console.error('参数解析失败:', e);
+                }
+                return null;
+            }
+            
+            function updateUI(params) {
+                if (params.ISO) document.getElementById('iso-value').textContent = params.ISO;
+                if (params.SS) document.getElementById('shutter-value').textContent = `1/${params.SS}s`;
+                if (params.AP) document.getElementById('aperture-value').textContent = `f/${params.AP}`;
+                if (params.WB) document.getElementById('wb-value').textContent = params.WB === 'AUTO' ? '自动' : `${params.WB}K`;
+            }
+            
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    z-index: 1000;
+                    backdrop-filter: blur(10px);
+                `;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    setTimeout(() => notification.remove(), 300);
+                }, 2000);
+            }
+            
+            // 分享参数功能
+            const shareParamsBtn = document.getElementById('share-params');
+            const shareModal = document.getElementById('share-modal');
+            const closeShare = document.getElementById('close-share');
+            
+            shareParamsBtn.addEventListener('click', () => {
+                shareModal.style.display = 'flex';
+            });
+            
+            closeShare.addEventListener('click', () => {
+                shareModal.style.display = 'none';
+            });
+            
+            // 复制参数
+            const copyBtn = document.getElementById('copy-param');
+            copyBtn.addEventListener('click', () => {
+                const paramCode = shareModal.querySelector('[style*="monospace"]').textContent.trim();
+                
+                navigator.clipboard.writeText(paramCode).then(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-check" style="margin-right: 8px;"></i> 已复制';
+                    setTimeout(() => {
+                        copyBtn.innerHTML = '<i class="fas fa-copy" style="margin-right: 8px;"></i> 复制';
+                    }, 2000);
+                });
+            });
+            
+            // 相机功能
+            
+            // 1. 网格切换
+            const cameraGrid = document.getElementById('camera-grid');
+            const cameraView = document.querySelector('.camera-view');
+            
+            for (let i = 0; i < 9; i++) {
+                const cell = document.createElement('div');
+                cell.style.border = '1px solid rgba(255, 255, 255, 0.3)';
+                cameraGrid.appendChild(cell);
+            }
+            
+            cameraView.addEventListener('dblclick', (e) => {
+                if (e.target.tagName === 'IMG') {
+                    cameraGrid.classList.toggle('visible');
+                }
+            });
+            
+            // 2. 对焦功能
+            const focusPoint = document.getElementById('focus-point');
+            
+            cameraView.addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG') {
+                    focusPoint.style.left = e.clientX + 'px';
+                    focusPoint.style.top = e.clientY + 'px';
+                    focusPoint.classList.add('active');
+                    
+                    setTimeout(() => {
+                        focusPoint.classList.remove('active');
+                    }, 1500);
+                }
+            });
+            
+            // 3. 拍照功能
+            const shutterBtn = document.getElementById('shutter-btn');
+            shutterBtn.addEventListener('click', () => {
+                // 拍照动画
+                const flash = document.createElement('div');
+                flash.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: white;
+                    z-index: 9999;
+                    opacity: 0.8;
+                `;
+                document.body.appendChild(flash);
+                
+                setTimeout(() => flash.remove(), 100);
+                showNotification('照片已保存');
+            });
+            
+            // 4. 曝光控制
+            const exposureControl = document.getElementById('exposure-control');
+            const exposureIndicator = document.getElementById('exposure-indicator');
+            let isDragging = false;
+            
+            function handleDrag(clientY) {
+                if (!isDragging) return;
+                
+                const rect = exposureControl.getBoundingClientRect();
+                let y = clientY - rect.top;
+                y = Math.max(0, Math.min(y, rect.height));
+                exposureIndicator.style.top = y + 'px';
+            }
+            
+            exposureIndicator.addEventListener('mousedown', () => isDragging = true);
+            exposureIndicator.addEventListener('touchstart', () => isDragging = true);
+            
+            document.addEventListener('mousemove', (e) => handleDrag(e.clientY));
+            document.addEventListener('touchmove', (e) => handleDrag(e.touches[0].clientY));
+            
+            document.addEventListener('mouseup', () => isDragging = false);
+            document.addEventListener('touchend', () => isDragging = false);
+            
+            // 5. 模式切换
+            const modeItems = document.querySelectorAll('.mode-item');
+            modeItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    modeItems.forEach(mode => mode.classList.remove('active'));
+                    item.classList.add('active');
+                    showNotification(`已切换到${item.textContent}模式`);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
